@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:background="#FFFFFF">
+
+    <!-- Spinner untuk pilih basemap -->
+    <Spinner
+        android:id="@+id/spinnerMapType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:minHeight="48dp" />
+
+    <!-- Fragment container untuk SupportMapFragment -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+    <!-- Container filter -->
+    <LinearLayout
+        android:id="@+id/filterContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_filter"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_gravity="top|start">
+
+        <CheckBox
+            android:id="@+id/cbSitus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Situs" />
+
+        <CheckBox
+            android:id="@+id/cbKawasan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kawasan"
+            android:layout_marginStart="10dp"/>
+
+        <CheckBox
+            android:id="@+id/cbBangunan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bangunan"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

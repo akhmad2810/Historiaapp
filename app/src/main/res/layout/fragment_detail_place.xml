@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Toolbar fragment sendiri -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:titleTextColor="@android:color/white" />
+
+    <!-- ScrollView untuk konten panjang -->
+    <ScrollView
+        android:id="@+id/scrollViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Foto tempat -->
+            <ImageView
+                android:id="@+id/imgPlace"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_building" />
+
+            <!-- Nama tempat -->
+            <TextView
+                android:id="@+id/tvPlaceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Tempat"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="12dp"/>
+
+            <!-- Alamat -->
+            <TextView
+                android:id="@+id/tvAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat: -"
+                android:paddingTop="2dp"/>
+
+            <!-- Koordinat -->
+            <TextView
+                android:id="@+id/tvCoordinate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Koordinat: -"
+                android:paddingTop="4dp"/>
+
+            <!-- Nomor sejarah -->
+            <TextView
+                android:id="@+id/tvNomor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor: -"
+                android:paddingTop="2dp"/>
+
+            <!-- Periode / Tahun -->
+            <TextView
+                android:id="@+id/tvPeriode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Periode/Tahun: -"
+                android:paddingTop="2dp"/>
+
+            <!-- Jenis sejarah -->
+            <TextView
+                android:id="@+id/tvJenis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis: -"
+                android:paddingTop="2dp"/>
+
+            <!-- Deskripsi lengkap -->
+            <TextView
+                android:id="@+id/tvPlaceDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi lengkap tempat"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:justificationMode="inter_word"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

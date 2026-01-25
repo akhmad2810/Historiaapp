@@ -1,0 +1,6 @@
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridAvatar"
+    android:layout_width="90dp"
+    android:layout_height="90dp"
+    android:padding="8dp"
+    android:scaleType="centerCrop"/>
