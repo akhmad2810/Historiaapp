@@ -36,9 +36,7 @@ class RegisterActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         val btnGoogleRegister = findViewById<Button>(R.id.btnGoogleRegister)
 
-        // -----------------------------
-        // GOOGLE CONFIG
-        // -----------------------------
+        
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.client_id))
             .requestEmail()
