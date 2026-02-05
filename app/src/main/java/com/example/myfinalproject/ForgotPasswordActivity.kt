@@ -33,7 +33,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         btnReset = findViewById(R.id.btnReset)
         progressBar = findViewById(R.id.progressBar)
 
-        // ===== AUTO ISI EMAIL DARI LOGIN =====
+       
         val emailFromLogin = intent.getStringExtra("email")
         if (!emailFromLogin.isNullOrEmpty()) {
             etEmail.setText(emailFromLogin)
@@ -42,7 +42,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         btnReset.setOnClickListener {
             val email = etEmail.text.toString().trim()
 
-            // ===== VALIDASI =====
+           
             if (email.isEmpty()) {
                 etEmail.error = "Email wajib diisi"
                 return@setOnClickListener
@@ -53,7 +53,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // ===== DIALOG KONFIRMASI =====
+            
             AlertDialog.Builder(this)
                 .setTitle("Konfirmasi Reset Password")
                 .setMessage("Link reset password akan dikirim ke:\n\n$email")
@@ -81,10 +81,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
             }
     }
 
-    // ===== DIALOG SUKSES =====
     private fun showSuccessDialog() {
         AlertDialog.Builder(this)
-            .setIcon(R.drawable.ic_success) // icon centang
+            .setIcon(R.drawable.ic_success) 
             .setTitle("Berhasil")
             .setMessage(
                 "Link reset password berhasil dikirim.\n\n" +
