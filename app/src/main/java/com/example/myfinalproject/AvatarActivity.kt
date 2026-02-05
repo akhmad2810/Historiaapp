@@ -14,13 +14,13 @@ class AvatarActivity : AppCompatActivity() {
     private val user = FirebaseAuth.getInstance().currentUser
     private val db = FirebaseDatabase.getInstance().getReference("users")
 
-    // Daftar avatar drawable (nama file di res/drawable)
+    
     private val avatars = listOf(
         "boy",
         "gamer",
         "girl",
         "rabbit"
-        // Tambahkan nama drawable baru di sini jika ada
+      
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,22 +40,22 @@ class AvatarActivity : AppCompatActivity() {
             imageView.setImageResource(resId)
             imageView.contentDescription = avatarName
 
-            // LayoutParams untuk GridLayout
+          
             imageView.layoutParams = GridLayout.LayoutParams().apply {
-                width = 0 // supaya menyesuaikan kolom
+                width = 0 
                 height = GridLayout.LayoutParams.WRAP_CONTENT
                 columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
                 setMargins(16, 16, 16, 16)
             }
 
-            // Tampilkan full muka tanpa terpotong
+          
             imageView.scaleType = ImageView.ScaleType.FIT_CENTER
             imageView.adjustViewBounds = true
 
-            // Klik avatar untuk memilih
+            
             imageView.setOnClickListener { selectAvatar(avatarName) }
 
-            // Tambahkan ke GridLayout
+            
             grid.addView(imageView)
         }
     }
@@ -63,10 +63,10 @@ class AvatarActivity : AppCompatActivity() {
     private fun selectAvatar(avatarName: String) {
         val uid = user?.uid ?: return
 
-        // Simpan ke Firebase
+        
         db.child(uid).child("photo").setValue(avatarName)
             .addOnSuccessListener {
-                // Simpan juga ke SharedPreferences lokal
+                
                 val sharedPref = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
                 with(sharedPref.edit()) {
                     putString("user_avatar", avatarName)
@@ -74,7 +74,7 @@ class AvatarActivity : AppCompatActivity() {
                 }
 
                 Toast.makeText(this, "Avatar berhasil diubah", Toast.LENGTH_SHORT).show()
-                finish() // kembali ke ProfileActivity
+                finish() 
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Gagal mengubah avatar", Toast.LENGTH_SHORT).show()
