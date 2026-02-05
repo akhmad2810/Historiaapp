@@ -44,7 +44,7 @@ class LeaderboardAdapter : RecyclerView.Adapter<LeaderboardAdapter.ViewHolder>()
         holder.title.text = item.title
         holder.score.text = item.score.toString()
 
-        // load avatar
+        
         Glide.with(holder.avatar.context)
             .load(item.avatar)
             .placeholder(R.drawable.ic_profile)
