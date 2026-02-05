@@ -12,7 +12,7 @@ import com.example.myfinalproject.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-// Data class untuk leaderboard
+
 data class LeaderboardItem(
     val name: String = "",
     val score: Int = 0,
@@ -42,14 +42,14 @@ class QuizResultFragment : Fragment() {
         val tvLastScore = view.findViewById<TextView>(R.id.tvFinalScore)
         val btnBack = view.findViewById<Button>(R.id.btnBackQuiz)
 
-        // Tampilkan nilai terakhir
+      
         tvLastScore.text = "Nilai Anda: $score"
 
-        // Simpan skor terakhir di SharedPreferences (untuk tampil di QuizHome)
+        
         val userPref = requireContext().getSharedPreferences("USER_PREF", 0)
         userPref.edit().putInt("LAST_SCORE", score).apply()
 
-        // 🔥 Simpan skor ke leaderboard Realtime Database
+       
         saveScoreToLeaderboard(score)
 
         btnBack.setOnClickListener {
@@ -61,7 +61,7 @@ class QuizResultFragment : Fragment() {
         return view
     }
 
-    // 🔥 Fungsi menyimpan skor ke Firebase Realtime Database
+    
     private fun saveScoreToLeaderboard(score: Int) {
         val db = FirebaseDatabase.getInstance().reference
 
@@ -69,7 +69,7 @@ class QuizResultFragment : Fragment() {
         val userId = user?.uid ?: db.push().key!!
         val userName = user?.displayName ?: user?.email ?: "Pengguna"
 
-        // Tentukan title berdasarkan skor
+        
         val title = when {
             score >= 90 -> "Master Quiz"
             score >= 70 -> "Advanced"
