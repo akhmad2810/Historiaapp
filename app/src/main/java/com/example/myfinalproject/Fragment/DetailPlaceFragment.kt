@@ -24,7 +24,7 @@ class DetailPlaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Toolbar detail
+       
         val toolbar = view.findViewById<Toolbar>(R.id.toolbarDetail)
         toolbar.title = arguments?.getString("nama") ?: "Detail Tempat"
 
