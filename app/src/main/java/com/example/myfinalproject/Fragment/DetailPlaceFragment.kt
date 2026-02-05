@@ -33,7 +33,7 @@ class DetailPlaceFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
 
-        // View
+        
         val tvName = view.findViewById<TextView>(R.id.tvPlaceName)
         val tvAddress = view.findViewById<TextView>(R.id.tvAdress)
         val tvCoordinate = view.findViewById<TextView>(R.id.tvCoordinate)
@@ -43,7 +43,7 @@ class DetailPlaceFragment : Fragment() {
         val tvDesc = view.findViewById<TextView>(R.id.tvPlaceDesc)
         val imgPlace = view.findViewById<ImageView>(R.id.imgPlace)
 
-        // Ambil data dari bundle
+       
         arguments?.let { bundle ->
             tvName.text = bundle.getString("nama")
             tvAddress.text = "Alamat: ${bundle.getString("address")}"
@@ -53,7 +53,7 @@ class DetailPlaceFragment : Fragment() {
             tvJenis.text = "Jenis: ${bundle.getString("jenis")}"
             tvDesc.text = bundle.getString("deskripsi")
 
-            // Load gambar AMAN (hindari ANR)
+           
             Glide.with(this)
                 .load(bundle.getInt("fotoRes"))
                 .into(imgPlace)
@@ -62,13 +62,13 @@ class DetailPlaceFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Menyembunyikan toolbar MainActivity
+        
         (activity as? MainActivity)?.hideToolbar()
     }
 
     override fun onPause() {
         super.onPause()
-        //Menampilkan kembali Toolbar Mainactivity
+      
         (activity as? MainActivity)?.showToolbar()
     }
 }
