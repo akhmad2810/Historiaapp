@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ===== AUTH CHECK =====
+        
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // ===== GOOGLE SIGN IN =====
+        
         googleSignInClient = GoogleSignIn.getClient(
             this,
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -42,22 +42,22 @@ class MainActivity : AppCompatActivity() {
                 .build()
         )
 
-        // ===== TOOLBAR =====
+        
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Peta"
 
-        // ===== BOTTOM NAV =====
+        
         bottomNavigation = findViewById(R.id.bottomNavigation)
 
-        // ===== DEFAULT FRAGMENT (QUIZ) =====
+        
         if (savedInstanceState == null) {
             bottomNavigation.selectedItemId = R.id.nav_map
             openMap()
         }
 
 
-        // ===== NAVIGATION HANDLER =====
+      
         bottomNavigation.setOnItemSelectedListener { item ->
 
             when (item.itemId) {
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         invalidateOptionsMenu()
     }
 
-    // ================= MENU TOOLBAR =================
+   
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_toolbar_menu, menu)
         return true
@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ================= TOOLBAR CONTROL =================
+    
     fun hideToolbar() {
         toolbar.visibility = View.GONE
     }
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.visibility = View.VISIBLE
     }
 
-    // ================= LOGOUT =================
+   
     private fun showLogoutDialog() {
         AlertDialog.Builder(this)
             .setTitle("Logout")
