@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         tvForgotPassword = findViewById(R.id.tvForgotPassword)
 
-        // ===== GOOGLE SIGN IN CONFIG =====
+        
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.client_id))
             .requestEmail()
@@ -56,7 +56,6 @@ class LoginActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // ===== LOGIN EMAIL =====
         btnLogin.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
@@ -92,19 +91,19 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // ===== LOGIN GOOGLE =====
+        
         googleBtn.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             startActivityForResult(googleSignInClient.signInIntent, RC_GOOGLE)
         }
 
-        // ===== REGISTER =====
+        
         btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
 
-        // Halaman Forgot Password
+      
         tvForgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             intent.putExtra("email", etEmail.text.toString().trim())
@@ -113,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    // Melakukan login melalui google
+  
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
