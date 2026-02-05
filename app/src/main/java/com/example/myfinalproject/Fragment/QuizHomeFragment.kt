@@ -30,7 +30,7 @@ class QuizHomeFragment : Fragment() {
         tvLastScore = view.findViewById(R.id.tvQuizLastScore)
         btnStart = view.findViewById(R.id.btnStartQuiz)
 
-        // Load data user login
+       
         loadUserData()
 
         btnStart.setOnClickListener {
@@ -52,7 +52,7 @@ class QuizHomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        loadUserData() // Refresh setiap fragment kembali aktif
+        loadUserData() 
     }
 
     private fun loadUserData() {
@@ -60,7 +60,7 @@ class QuizHomeFragment : Fragment() {
 
         val username = user?.displayName ?: user?.email ?: "User"
 
-        // Mengambil skor terakhir dari SharePreferences
+        
         val userPref = requireContext().getSharedPreferences("USER_PREF", Context.MODE_PRIVATE)
         val lastScore = userPref.getInt("LAST_SCORE", 0)
 
