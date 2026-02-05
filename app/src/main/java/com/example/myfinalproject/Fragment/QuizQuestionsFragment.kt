@@ -67,12 +67,12 @@ class QuizQuestionsFragment : Fragment() {
         return view
     }
 
-    //Melakukan pemuatan pertanyaan
+   
     private fun loadQuestion() {
         val q = questions[index]
         tvQuestion.text = q.question
 
-        // melakukan pengecekan jika ada gambar
+        
         if (q.ImageResId != null) {
             imgQuestion.setImageResource(q.ImageResId)
             imgQuestion.visibility = View.VISIBLE
